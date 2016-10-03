@@ -14,7 +14,7 @@
 
 - (id)initWithActivityHandler:(id<ADJActivityHandler>) activityHandler
        withAttributionPackage:(ADJActivityPackage *) attributionPackage
-                 startPaused:(BOOL)startPaused
+                startsSending:(BOOL)startsSending
 hasAttributionChangedDelegate:(BOOL)hasAttributionChangedDelegate;
 
 - (void)checkSessionResponse:(ADJSessionResponseData *)sessionResponseData;
@@ -27,13 +27,15 @@ hasAttributionChangedDelegate:(BOOL)hasAttributionChangedDelegate;
 
 - (void)resumeSending;
 
+- (void)teardown;
+
 @end
 
 @interface ADJAttributionHandler : NSObject <ADJAttributionHandler>
 
 + (id<ADJAttributionHandler>)handlerWithActivityHandler:(id<ADJActivityHandler>)activityHandler
                                  withAttributionPackage:(ADJActivityPackage *) attributionPackage
-                                            startPaused:(BOOL)startPaused
+                                          startsSending:(BOOL)startsSending
                           hasAttributionChangedDelegate:(BOOL)hasAttributionChangedDelegate;
 
 @end
