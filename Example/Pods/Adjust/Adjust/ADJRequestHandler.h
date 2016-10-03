@@ -13,7 +13,10 @@
 
 - (id)initWithPackageHandler:(id<ADJPackageHandler>) packageHandler;
 
-- (void)sendPackage:(ADJActivityPackage *)activityPackage;
+- (void)sendPackage:(ADJActivityPackage *)activityPackage
+          queueSize:(NSUInteger)queueSize;
+
+- (void)teardown;
 
 @end
 
