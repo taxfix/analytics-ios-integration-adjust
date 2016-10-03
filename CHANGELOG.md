@@ -1,6 +1,12 @@
 Change Log
 ==========
 
+Version 1.0.2 *(3rd October, 2016)*
+------------------------------------------
+*(Supports analytics-ios 3.0+ and Adjust 4.10+)*
+
+  * [Update](https://github.com/segment-integrations/analytics-ios-integration-adjust/pull/2/commits/19d6931b51334ce72c20bbad56fec7c6c3a7f6d9): Bumps Adjust dependency to [latest version](https://cocoapods.org/pods/Adjust)
+
 Version 1.0.1 *(24th August, 2016)*
 ------------------------------------------
 *(Supports analytics-ios 3.0+)*
