@@ -1,6 +1,12 @@
 Change Log
 ==========
 
+Version 1.1.1 *(14th July, 2017)*
+------------------------------------------
+*(Supports analytics-ios 3.0+ and Adjust 4.10+)*
+
+  * [Fix](https://github.com/segment-integrations/analytics-ios-integration-adjust/pull/6/files): Adds default value to prevent crash from nil value.
+
 Version 1.1.0 *(6th July, 2017)*
 ------------------------------------------
 *(Supports analytics-ios 3.0+ and Adjust 4.10+)*
