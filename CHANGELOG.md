@@ -1,6 +1,12 @@
 Change Log
 ==========
 
+Version 1.1.2 *(30th August, 2017)*
+------------------------------------------
+*(Supports analytics-ios 3.0+ and Adjust 4.10+)*
+
+  * [Fix](https://github.com/segment-integrations/analytics-ios-integration-adjust/pull/10): Sets Segment's `anonymousId` in Adjust via Adjust's `setSessionPartnerParameter` method, on all `track` calls. This will ensure that the value is set and sent back on `Install Attributed` events.
+
 Version 1.1.1 *(14th July, 2017)*
 ------------------------------------------
 *(Supports analytics-ios 3.0+ and Adjust 4.10+)*
