@@ -18,14 +18,21 @@
         if ([self setEnvironmentProduction]) {
             environment = ADJEnvironmentProduction;
         }
+
         ADJConfig *adjustConfig = [ADJConfig configWithAppToken:appToken
                                                     environment:environment];
 
         if ([self setEventBufferingEnabled]) {
             [adjustConfig setEventBufferingEnabled:YES];
         }
+
         if ([self trackAttributionData]) {
             [adjustConfig setDelegate:self];
+        }
+
+        if ([self setDelay]) {
+            double delayTime = [settings[@"delayTime"] doubleValue];
+            [adjustConfig setDelayStart:delayTime];
         }
 
         [Adjust appDidLaunch:adjustConfig];
@@ -183,5 +190,9 @@
     return [(NSNumber *)[self.settings objectForKey:@"trackAttributionData"] boolValue];
 }
 
+- (BOOL)setDelay
+{
+    return [(NSNumber *)[self.settings objectForKey:@"setDelay"] boolValue];
+}
 
 @end
