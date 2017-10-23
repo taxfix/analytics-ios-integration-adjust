@@ -1,6 +1,12 @@
 Change Log
 ==========
 
+Version 1.1.3 *(23rd October, 2017)*
+------------------------------------------
+*(Supports analytics-ios 3.0+ and Adjust 4.10+)*
+
+  * [Improvement](https://github.com/segment-integrations/analytics-ios-integration-adjust/pull/14): Adds setting to configure [delayed start for Adjust SDK](https://github.com/adjust/ios_sdk#delay-start). Configure a delay via the `setDelay` and `delayTime` settings to ensure all session parameters have been loaded properly.
+
 Version 1.1.2 *(30th August, 2017)*
 ------------------------------------------
 *(Supports analytics-ios 3.0+ and Adjust 4.10+)*
