@@ -8,7 +8,7 @@ install: Example/Podfile Segment-Adjust.podspec
 	pod install --project-directory=Example
 
 lint:
-	pod lib lint --verbose
+	pod lib lint --verbose --allow-warnings
 
 clean:
 	set -o pipefail && xcodebuild $(XC_ARGS) clean | xcpretty
