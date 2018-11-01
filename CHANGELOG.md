@@ -1,6 +1,13 @@
 Change Log
 ==========
 
+Version 1.1.4 *(1st November, 2019)*
+------------------------------------------
+*(Supports Adjust 4.15)*
+
+  * [Improvement](https://github.com/segment-integrations/analytics-ios-integration-adjust/pull/17): Adds SDK signature to mitigate SDK spoofing, GDPR [Right to be Forgotten Function](https://github.com/adjust/android_sdk#gdpr-right-to-be-forgotten), [Push Token collection]( https://github.com/adjust/android_sdk#push-token) for use in our Audience Builder and Uninstall/Reinstall features, and fraud prevention. 
+
+
 Version 1.1.3 *(23rd October, 2017)*
 ------------------------------------------
 *(Supports analytics-ios 3.0+ and Adjust 4.10+)*
