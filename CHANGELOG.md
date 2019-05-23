@@ -1,11 +1,16 @@
 Change Log
 ==========
+Version 1.1.5 *(23rd May, 2019)*
+------------------------------------------
+*(Supports Adjust 4.17.2)*
 
-Version 1.1.4 *(1st November, 2019)*
+  * [Improvement] Bumping SDK version from 4.15 to 4.17.2
+
+Version 1.1.4 *(1st November, 2018)*
 ------------------------------------------
 *(Supports Adjust 4.15)*
 
-  * [Improvement](https://github.com/segment-integrations/analytics-ios-integration-adjust/pull/17): Adds SDK signature to mitigate SDK spoofing, GDPR [Right to be Forgotten Function](https://github.com/adjust/android_sdk#gdpr-right-to-be-forgotten), [Push Token collection]( https://github.com/adjust/android_sdk#push-token) for use in our Audience Builder and Uninstall/Reinstall features, and fraud prevention. 
+  * [Improvement](https://github.com/segment-integrations/analytics-ios-integration-adjust/pull/17): Adds SDK signature to mitigate SDK spoofing, GDPR [Right to be Forgotten Function](https://github.com/adjust/android_sdk#gdpr-right-to-be-forgotten), [Push Token collection]( https://github.com/adjust/android_sdk#push-token) for use in our Audience Builder and Uninstall/Reinstall features, and fraud prevention.
 
 
 Version 1.1.3 *(23rd October, 2017)*
