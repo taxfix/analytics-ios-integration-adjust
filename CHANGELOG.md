@@ -1,5 +1,13 @@
 Change Log
 ==========
+Version 2.0.0 *(13th September, 2019)*
+------------------------------------------
+*(Supports Adjust 4.18.2)*
+
+  * [Improvement] Bumping SDK version from 4.17.2 to 4.18.2 which supports device token parsing for iOS 13  and addresses Apple's warning to developers (ITMS-90809) about UIWebView class deprecation
+  * See [Adjust documentation](https://github.com/adjust/ios_sdk/blob/master/doc/english/web_view_migration.md) on migrating Adjust web bridge. You must switch to usage of WKWebView in your app instead of UIWebView and use following methods instead: `loadWKWebViewBridge:` and `loadWKWebViewBridge:webViewDelegate:`
+
+
 Version 1.1.5 *(23rd May, 2019)*
 ------------------------------------------
 *(Supports Adjust 4.17.2)*
