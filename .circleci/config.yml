@@ -12,7 +12,7 @@ jobs:
           command: |
             sudo gem install xcpretty
             sudo gem install cocoapods
-            sudo gem instsll cocoapods-repo-update
+            sudo gem install cocoapods-repo-update
       # - run:
       #     name: Fetch Cocoapods specs
       #     command: curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
