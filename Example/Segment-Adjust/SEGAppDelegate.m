@@ -9,8 +9,6 @@
 #import "SEGAppDelegate.h"
 #import <Analytics/SEGAnalytics.h>
 #import <Segment-Adjust/SEGAdjustIntegrationFactory.h>
-@import AppTrackingTransparency;
-@import AdSupport;
 
 
 @implementation SEGAppDelegate
@@ -22,15 +20,7 @@
     SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWithWriteKey:@"gnjyuUpq7mZYtLM76mwltoiZcDsFpnfY"];
 
     // Add any of your bundled integrations.
-    [config use:[SEGAdjustIntegrationFactory instance]];
-    
-    [config setAdSupportBlock:^NSString * _Nonnull(void){
-       /*
-        !!!: Because this completion block is asynchronous this won't return before the user is able to answer the alert if they haven't done already. Because this needs to be set up
-        */
-        NSString *idfa = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
-        return idfa;
-    }];
+    [config use:[SEGAdjustIntegrationFactory instance]]; d
 
     [SEGAnalytics setupWithConfiguration:config];
 
