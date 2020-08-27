@@ -20,7 +20,7 @@
     SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWithWriteKey:@"gnjyuUpq7mZYtLM76mwltoiZcDsFpnfY"];
 
     // Add any of your bundled integrations.
-    [config use:[SEGAdjustIntegrationFactory instance]]; d
+    [config use:[SEGAdjustIntegrationFactory instance]];
 
     [SEGAnalytics setupWithConfiguration:config];
 
