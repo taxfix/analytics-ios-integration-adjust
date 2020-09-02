@@ -34,6 +34,31 @@ SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWith
 
 ```
 
+## IDFA tracking for iOS14
+
+
+1. Add the AppTrackingTransparency.framework - This framework is needed in iOS 14 and later for SDK to be able to wrap user's tracking consent dialog and access to value of the user's consent to be tracked or not.
+2. Add `"Privacy - Tracking Usage Description"` to your app Info.plist with a string indicating your intentions for tracking a user's IDFA.
+2. Implement the Adjust SDK App-tracking authorization wrapper, to conveniently and efficiently communicate the new state of consent to the backend. As soon as a user responds to the pop-up dialog, it's then communicated back using your callback method. The SDK will also inform the backend of the user's choice.
+
+```
+Adjust.requestTrackingAuthorizationWithCompletionHandler().then((status) {
+  switch (status) {
+    case 0:
+      // ATTrackingManagerAuthorizationStatusNotDetermined case
+      break;
+    case 1:
+      // ATTrackingManagerAuthorizationStatusRestricted case
+      break;
+    case 2:
+      // ATTrackingManagerAuthorizationStatusDenied case
+      break;
+    case 3:
+      // ATTrackingManagerAuthorizationStatusAuthorized case
+      break;
+  }
+});
+```
 ## License
 
 ```
