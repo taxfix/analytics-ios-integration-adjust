@@ -1,12 +1,12 @@
 PODS:
-  - Adjust (4.18.2):
-    - Adjust/Core (= 4.18.2)
-  - Adjust/Core (4.18.2)
-  - Analytics (3.6.9)
+  - Adjust (4.23.0):
+    - Adjust/Core (= 4.23.0)
+  - Adjust/Core (4.23.0)
+  - Analytics (4.0.5)
   - Expecta (1.0.6)
-  - Segment-Adjust (2.0.0):
-    - Adjust (~> 4.18)
-    - Analytics (~> 3.0)
+  - Segment-Adjust (2.1.1):
+    - Adjust (~> 4.23)
+    - Analytics
   - Specta (1.0.7)
 
 DEPENDENCIES:
@@ -26,10 +26,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Adjust: 1fda924c9a84d738301c20cf147db0ad58c50f4e
-  Analytics: 6541ce337e99d9f7a2240a8b3953940a7be5f998
+  Adjust: 552e4f9bbc77501b2000f483491b20642081749a
+  Analytics: 4bcf052c91e1f3339219e83d6a036fb2bd7c218d
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
-  Segment-Adjust: a5464ded762deb6e92d7b769c45523809076fa8a
+  Segment-Adjust: 9ce7931c0477eb2d4ff590f2fedc000dbdafe0ff
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
 
 PODFILE CHECKSUM: 6057868ba6813120a3ab5ffee3b33af7e280bbd5
