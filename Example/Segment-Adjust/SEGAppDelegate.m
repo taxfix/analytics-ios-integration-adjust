@@ -9,7 +9,10 @@
 #import "SEGAppDelegate.h"
 #import <Analytics/SEGAnalytics.h>
 #import <Segment-Adjust/SEGAdjustIntegrationFactory.h>
-
+#if __IPHONE_14_0
+@import AppTrackingTransparency;
+#endif
+@import AdSupport;
 
 @implementation SEGAppDelegate
 
@@ -17,10 +20,17 @@
 {
     // Override point for customization after application launch.
     [SEGAnalytics debug:YES];
-    SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWithWriteKey:@"gnjyuUpq7mZYtLM76mwltoiZcDsFpnfY"];
+    SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWithWriteKey:@"YOUR_WRITE_KEY_HERE"];
 
     // Add any of your bundled integrations.
     [config use:[SEGAdjustIntegrationFactory instance]];
+    
+    if (@available(iOS 14, *)) {
+        [config setAdSupportBlock:^NSString * _Nonnull(void) {
+            NSString *idfa = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+            return idfa;
+        }];
+    }
 
     [SEGAnalytics setupWithConfiguration:config];
 
@@ -31,8 +41,11 @@
                                properties:@{ @"title" : @"Launch Screen",
                                              @"revenue" : @14.51 }];
 
+    [[SEGAnalytics sharedAnalytics] flush];
+    [SEGAnalytics debug:YES];
     return YES;
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
