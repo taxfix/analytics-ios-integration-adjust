@@ -1,5 +1,10 @@
 Change Log
 ==========
+Version 3.0.0 *(2nd September, 2020)*
+------------------------------------------
+*(Supports Adjust 4.23)*
+
+  * [New] Adds support for Xcode 12 and iOS14 by bumping Adjust SDK and Segment Analytics to 4.x. 
 
 Version 2.1.0 *(9th January, 2020)*
 ------------------------------------------
