@@ -1,5 +1,10 @@
 #import "SEGAdjustIntegration.h"
+
+#if defined(__has_include) && __has_include(<Analytics/SEGAnalytics.h>)
 #import <Analytics/SEGAnalyticsUtils.h>
+#else
+#import <Segment/SEGAnalyticsUtils.h>
+#endif
 
 
 @implementation SEGAdjustIntegration
