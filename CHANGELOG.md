@@ -1,5 +1,11 @@
 Change Log
 ==========
+Version 3.1.0 *(7th October, 2020)*
+-------------------------------------------
+*(Supports Adjust 4.23)*
+
+* Updates import headers for iOS 14 support.
+
 Version 3.0.0 *(2nd September, 2020)*
 ------------------------------------------
 *(Supports Adjust 4.23)*
