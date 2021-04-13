@@ -1,5 +1,11 @@
 Change Log
 ==========
+Version 3.1.1 *(13th April, 2021)*
+-------------------------------------------
+*(Supports Adjust 4.28)*
+
+* Bump Adjust SDK to Adjust iOS 14 compatibility.
+
 Version 3.1.0 *(7th October, 2020)*
 -------------------------------------------
 *(Supports Adjust 4.23)*

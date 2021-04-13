@@ -64,7 +64,7 @@
 		63970E20BBB27C93FFC1A124 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		77A880914A2179E2F5B5B585 /* Pods-Segment-Adjust_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Segment-Adjust_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Segment-Adjust_Example/Pods-Segment-Adjust_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		D0CFF18A1CA70DF900C9D89B /* Segment-Adjust.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Segment-Adjust.podspec"; path = "../Segment-Adjust.podspec"; sourceTree = "<group>"; };
+		D0CFF18A1CA70DF900C9D89B /* Segment-Adjust.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Segment-Adjust.podspec"; path = "../Segment-Adjust.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		FFB320D5E77C5D0755D5CCE8 /* libPods-Segment-Adjust_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Segment-Adjust_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -258,6 +258,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
