@@ -34,13 +34,13 @@
 - (void) addIDFATracking {
     
     if (@available(iOS 14, *)) {
-        if (ATTrackingManager.trackingAuthorizationStatus == 0){
+        if (ATTrackingManager.trackingAuthorizationStatus == ATTrackingManagerAuthorizationStatusNotDetermined){
             [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
                 
                 NSString *idfa = ASIdentifierManager.sharedManager.advertisingIdentifier.UUIDString;
                 NSString *idfv = UIDevice.currentDevice.identifierForVendor.UUIDString ? UIDevice.currentDevice.identifierForVendor.UUIDString : @"0000";
                 
-                if (status == 3) {
+                if (status == ATTrackingManagerAuthorizationStatusAuthorized) {
                     [[SEGAnalytics sharedAnalytics] track:@"iOS14 tracking enabled"
                                                properties:@{ @"IDFA" : idfa,
                                                  @"IDFV" : idfv }];
