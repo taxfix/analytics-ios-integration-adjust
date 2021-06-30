@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Segment-Adjust"
-  s.version          = "3.2.0-beta"
+  s.version          = "3.1.2"
   s.summary          = "Adjust Integration for Segment's analytics-ios library."
 
   s.description      = <<-DESC

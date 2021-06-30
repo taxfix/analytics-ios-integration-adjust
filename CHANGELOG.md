@@ -1,5 +1,11 @@
 Change Log
 ==========
+Version 3.1.2 *(30th June, 2021)*
+-------------------------------------------
+*(Supports Adjust 4.29.3)*
+
+* Bump Adjust SDK to version 4.29.3 which includes a new deduplicate ID, e.g. for Apple Ad campaigns.
+
 Version 3.1.1 *(13th April, 2021)*
 -------------------------------------------
 *(Supports Adjust 4.28)*
