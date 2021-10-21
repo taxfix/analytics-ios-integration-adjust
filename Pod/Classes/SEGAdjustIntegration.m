@@ -61,6 +61,8 @@
             // Format the revenue.
             NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
             [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+            [formatter setGroupingSeparator:@","];
+            [formatter setDecimalSeparator:@"."];
             return [formatter numberFromString:revenueProperty];
         } else if ([revenueProperty isKindOfClass:[NSNumber class]]) {
             return revenueProperty;
