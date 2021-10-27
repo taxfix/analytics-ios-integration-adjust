@@ -1,5 +1,9 @@
 Change Log
 ==========
+Version 3.1.4 *(27th October, 2021)*
+-------------------------------------------
+* Fix for localised revenue
+
 Version 3.1.2 *(30th June, 2021)*
 -------------------------------------------
 *(Supports Adjust 4.29.3)*
