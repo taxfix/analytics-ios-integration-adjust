@@ -17,7 +17,11 @@
         self.settings = settings;
         self.analytics = analytics;
 
-        NSString *appToken = [settings objectForKey:@"appToken"];
+        // FPT-227 overwrite Adjust app token from build settings
+        NSBundle* mainBundle = [NSBundle mainBundle];
+        NSString *overwittenAppToken = [mainBundle objectForInfoDictionaryKey:@"AdjustAppToken"];
+        NSLog(@"overwittenAppToken = %@", overwittenAppToken);
+        NSString *appToken = ([overwittenAppToken length] != 0)? overwittenAppToken : [settings objectForKey:@"appToken"];
 
         NSString *environment = ADJEnvironmentSandbox;
         if ([self setEnvironmentProduction]) {
@@ -177,6 +181,18 @@
 {
     NSDictionary *tokens = [self.settings objectForKey:@"customEvents"];
     NSString *token = [tokens objectForKey:event];
+
+    // FPT-227 retrieve event key for specific Adjust Project 
+    if([token length] == 0){
+        NSBundle* mainBundle = [NSBundle mainBundle];
+        NSString *overwittenAppToken = [mainBundle objectForInfoDictionaryKey:@"AdjustAppToken"];
+        if([overwittenAppToken length] > 0){
+            NSString *overwrittenEventName = [NSString stringWithFormat:@"%@#%@", overwittenAppToken, event];
+            NSString *overwrittenToken = [tokens objectForKey:overwrittenEventName];
+            return overwrittenToken;
+        }
+    }
+
     return token;
 }
 
