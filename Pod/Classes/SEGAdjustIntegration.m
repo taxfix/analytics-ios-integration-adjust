@@ -182,16 +182,15 @@
     NSDictionary *tokens = [self.settings objectForKey:@"customEvents"];
     NSString *token = [tokens objectForKey:event];
 
-    // FPT-227 retrieve event key for specific Adjust Project 
-    if([token length] == 0){
-        NSBundle* mainBundle = [NSBundle mainBundle];
-        NSString *overwittenAppToken = [mainBundle objectForInfoDictionaryKey:@"AdjustAppToken"];
-        if([overwittenAppToken length] > 0){
-            NSString *overwrittenEventName = [NSString stringWithFormat:@"%@#%@", overwittenAppToken, event];
-            NSString *overwrittenToken = [tokens objectForKey:overwrittenEventName];
-            return overwrittenToken;
-        }
+    // FPT-227 retrieve event key for specific Adjust Project
+    NSBundle* mainBundle = [NSBundle mainBundle];
+    NSString *overwittenAppToken = [mainBundle objectForInfoDictionaryKey:@"AdjustAppToken"];
+    if([overwittenAppToken length] > 0){
+        NSString *overwrittenEventName = [NSString stringWithFormat:@"%@#%@", overwittenAppToken, event];
+        NSString *overwrittenToken = [tokens objectForKey:overwrittenEventName];
+        return overwrittenToken;
     }
+    
 
     return token;
 }
