@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSDictionary *settings;
 @property (nonatomic, strong) SEGAnalytics *analytics;
+@property (nonatomic) BOOL isAppTokenOverriden;
 
 - (instancetype)initWithSettings:(NSDictionary *)settings withAnalytics:(SEGAnalytics *)analytics;
 
