@@ -19,6 +19,14 @@
 
         // FPT-227 overwrite Adjust app token from build settings
         NSBundle* mainBundle = [NSBundle mainBundle];
+        NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+        NSString *appVersionFromInfoDictionary = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+        NSString *adjustKeyFromInfoDictionary = [infoDictionary objectForKey:@"AdjustAppToken"];
+        NSLog(@"app version from info dictionary %@", appVersionFromInfoDictionary);
+        NSLog(@"adjust key from info dictionary %@", adjustKeyFromInfoDictionary);
+
+
+
         NSString *segmentAppToken = [settings objectForKey:@"appToken"];
         NSString *overwittenAppToken = [mainBundle objectForInfoDictionaryKey:@"AdjustAppToken"];
         NSLog(@"overwittenAppToken when init %@", overwittenAppToken);
