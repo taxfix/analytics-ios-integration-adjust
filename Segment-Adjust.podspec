@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Segment-Adjust"
-  s.version          = "3.1.4"
+  s.version          = "3.1.5"
   s.summary          = "Adjust Integration for Segment's analytics-ios library."
 
   s.description      = <<-DESC
@@ -16,11 +16,11 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/segment-integrations/analytics-ios-integration-adjust.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/segment'
 
-  s.platform     = :ios, '10.0'
+  s.platform     = :ios, '9.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
 
   s.dependency 'Analytics'
-  s.dependency 'Adjust', '~> 4.29.3'
+  s.dependency 'Adjust', '~> 4.30.0'
 end
