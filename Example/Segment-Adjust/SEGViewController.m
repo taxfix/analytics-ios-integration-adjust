@@ -32,25 +32,25 @@
 
 
 - (void) addIDFATracking {
-    
+
     if (@available(iOS 14, *)) {
         if (ATTrackingManager.trackingAuthorizationStatus == ATTrackingManagerAuthorizationStatusNotDetermined){
             [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
-                
+
                 NSString *idfa = ASIdentifierManager.sharedManager.advertisingIdentifier.UUIDString;
                 NSString *idfv = UIDevice.currentDevice.identifierForVendor.UUIDString ? UIDevice.currentDevice.identifierForVendor.UUIDString : @"0000";
-                
+
                 if (status == ATTrackingManagerAuthorizationStatusAuthorized) {
                     [[SEGAnalytics sharedAnalytics] track:@"iOS14 tracking enabled"
                                                properties:@{ @"IDFA" : idfa,
                                                  @"IDFV" : idfv }];
-                    
+
                 } else {
                     [[SEGAnalytics sharedAnalytics] track:@"iOS14 tracking NOT enabled"
                                                properties:@{ @"IDFA" : idfa,
                                                  @"IDFV" : idfv }];
                 }
-                
+
                 // your authorization handler here
                 // note: the Singular SDK will automatically detect if authorization has been given and initialize itself
             }];
