@@ -51,21 +51,23 @@
     return self;
 }
 
-+ (NSDictionary *)extractPartnerParameters:(NSDictionary *)dictionary
++ (NSDictionary *)extractPartnerParameters:(NSDictionary *)integrations
 {
-    NSString *const adjustPartnerParameterPrefix = @"adjust_pp_";
+    NSMutableDictionary* partnerParametersDict = @{}.mutableCopy;
 
-    NSMutableDictionary* partnerParameters = @{}.mutableCopy;
+    if (integrations) {
+        NSDictionary * adjustConfig = integrations[@"Adjust"];
 
-    for (NSString *key in dictionary.allKeys) {
-        if ([[key lowercaseString] hasPrefix:adjustPartnerParameterPrefix]) {
-            id ppKey = [[key substringFromIndex:[adjustPartnerParameterPrefix length]] lowercaseString];
-            id value = dictionary[key];
-            partnerParameters[ppKey] = value;
+        if (adjustConfig) {
+            NSDictionary * partnerParameters = adjustConfig[@"partnerParameters"];
+
+            if (partnerParameters) {
+                partnerParametersDict = [partnerParameters copy];
+            }
         }
     }
 
-    return partnerParameters;
+    return partnerParametersDict;
 }
 
 + (NSNumber *)extractRevenue:(NSDictionary *)dictionary withKey:(NSString *)revenueKey
@@ -157,7 +159,7 @@
         NSString *currency = [SEGAdjustIntegration extractCurrency:payload.properties withKey:@"currency"];
 
         // Extract Adjust Partner Parameters
-        NSDictionary *partnerParameters = [SEGAdjustIntegration extractPartnerParameters:payload.properties];
+        NSDictionary *partnerParameters = [SEGAdjustIntegration extractPartnerParameters:payload.integrations];
 
         for (NSString *key in partnerParameters) {
             NSString *value = [NSString stringWithFormat:@"%@", [partnerParameters objectForKey:key]];
