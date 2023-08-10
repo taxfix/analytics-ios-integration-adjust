@@ -51,18 +51,21 @@
     return self;
 }
 
-+ (NSDictionary *)extractPartnerParameters:(NSDictionary *)integrations
++ (NSDictionary *)extractPartnerParameters:(NSDictionary *)context
 {
     NSMutableDictionary* partnerParametersDict = @{}.mutableCopy;
 
-    if (integrations) {
-        NSDictionary * adjustConfig = integrations[@"Adjust"];
+    if (context) {
+        NSDictionary * integrations = context[@"integrations"];
+        if (integrations) {
+            NSDictionary * adjustConfig = integrations[@"Adjust"];
 
-        if (adjustConfig) {
-            NSDictionary * partnerParameters = adjustConfig[@"partnerParameters"];
+            if (adjustConfig) {
+                NSDictionary * partnerParameters = adjustConfig[@"partnerParameters"];
 
-            if (partnerParameters) {
-                partnerParametersDict = [partnerParameters copy];
+                if (partnerParameters) {
+                    partnerParametersDict = [partnerParameters copy];
+                }
             }
         }
     }
@@ -159,7 +162,7 @@
         NSString *currency = [SEGAdjustIntegration extractCurrency:payload.properties withKey:@"currency"];
 
         // Extract Adjust Partner Parameters
-        NSDictionary *partnerParameters = [SEGAdjustIntegration extractPartnerParameters:payload.integrations];
+        NSDictionary *partnerParameters = [SEGAdjustIntegration extractPartnerParameters:payload.context];
 
         for (NSString *key in partnerParameters) {
             NSString *value = [NSString stringWithFormat:@"%@", [partnerParameters objectForKey:key]];
