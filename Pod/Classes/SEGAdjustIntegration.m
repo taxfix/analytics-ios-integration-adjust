@@ -51,6 +51,28 @@
     return self;
 }
 
++ (NSDictionary *)extractPartnerParameters:(NSDictionary *)context
+{
+    NSMutableDictionary* partnerParametersDict = @{}.mutableCopy;
+
+    if (context) {
+        NSDictionary * integrations = context[@"integrations"];
+        if (integrations) {
+            NSDictionary * adjustConfig = integrations[@"Adjust"];
+
+            if (adjustConfig) {
+                NSDictionary * partnerParameters = adjustConfig[@"partnerParameters"];
+
+                if (partnerParameters) {
+                    partnerParametersDict = [partnerParameters copy];
+                }
+            }
+        }
+    }
+
+    return partnerParametersDict;
+}
+
 + (NSNumber *)extractRevenue:(NSDictionary *)dictionary withKey:(NSString *)revenueKey
 {
     id revenueProperty = nil;
@@ -138,6 +160,15 @@
         // Track revenue specifically
         NSNumber *revenue = [SEGAdjustIntegration extractRevenue:payload.properties withKey:@"revenue"];
         NSString *currency = [SEGAdjustIntegration extractCurrency:payload.properties withKey:@"currency"];
+
+        // Extract Adjust Partner Parameters
+        NSDictionary *partnerParameters = [SEGAdjustIntegration extractPartnerParameters:payload.context];
+
+        for (NSString *key in partnerParameters) {
+            NSString *value = [NSString stringWithFormat:@"%@", [partnerParameters objectForKey:key]];
+            [event addPartnerParameter:key value:value];
+        }
+
         if (revenue) {
             [event setRevenue:[revenue doubleValue] currency:currency];
         }
@@ -192,7 +223,7 @@
         NSString *overwrittenToken = [tokens objectForKey:overwrittenEventName];
         return overwrittenToken;
     }
-    
+
 
     return token;
 }

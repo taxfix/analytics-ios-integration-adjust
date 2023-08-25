@@ -24,7 +24,7 @@
 
     // Add any of your bundled integrations.
     [config use:[SEGAdjustIntegrationFactory instance]];
-    
+
     if (@available(iOS 14, *)) {
         [config setAdSupportBlock:^NSString * _Nonnull(void) {
             NSString *idfa = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
